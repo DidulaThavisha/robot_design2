@@ -1,0 +1,761 @@
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+AUROC: 0.7397276077773906
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+AUROC: 0.783009240133123
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv
+Accuracy: 83.8
+Precision: 0.76
+Recall: 0.988
+
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv
+Accuracy: 84.5
+Precision: 0.7928692699490663
+Recall: 0.934
+
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv
+Accuracy: 81.0
+Precision: 0.8137651821862348
+Recall: 0.804
+
+
+partial_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_PAVF.csv
+Accuracy: 77.5
+Precision: 0.7425044091710759
+Recall: 0.842
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/cst_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 65.89999999999999
+Precision: 0.7552880703551352
+Recall: 0.4706666666666666
+
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv
+Accuracy: 80.8
+Precision: 0.7271386430678466
+Recall: 0.986
+
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv
+Accuracy: 82.9
+Precision: 0.789103690685413
+Recall: 0.898
+
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv
+Accuracy: 81.4
+Precision: 0.7315634218289085
+Recall: 0.992
+
+
+partial_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_PAVF.csv
+Accuracy: 66.9
+Precision: 0.8789237668161435
+Recall: 0.392
+
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+AUROC: 0.787389659935409
+####################################################################################################################
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.7247877933844051
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.7109343211360246
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.7838417439315493
+Par_vit: 0.4076537301519707
+Full_vit: 0.7228122126651817
+IR_HRF: 0.8852368887214991
+DME: 0.8782072435758144
+Fluid_irf: 0.8182964525492291
+Overall: 0.742441305532739
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.7738942002931243
+Par_vit: 0.3950670772339183
+Full_vit: 0.7457482441761454
+IR_HRF: 0.8641924699478609
+DME: 0.8431565940166706
+Fluid_irf: 0.7994977486726734
+Overall: 0.7295324268094537
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_eye_id_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.791949652320118
+Par_vit: 0.4790821869621418
+Full_vit: 0.7510222048936115
+IR_HRF: 0.8799225520987957
+DME: 0.8724295275873264
+Fluid_irf: 0.8062817422709543
+Overall: 0.7577476427625658
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_eye_id_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.7988506414183758
+Par_vit: 0.46886037233056677
+Full_vit: 0.7662158386554624
+IR_HRF: 0.8772502194604694
+DME: 0.8507856880878157
+Fluid_irf: 0.8038316295548242
+Overall: 0.7533887496178278
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_cst_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.786170370121022
+Par_vit: 0.409587520063014
+Full_vit: 0.7243454717537967
+IR_HRF: 0.882272357786361
+DME: 0.851334420902408
+Fluid_irf: 0.8140041772812167
+Overall: 0.7363087895573592
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.7555282119813784
+Par_vit: 0.4353920589822854
+Full_vit: 0.6881734702178091
+IR_HRF: 0.8536516143435704
+DME: 0.8302239693557067
+Fluid_irf: 0.7777895064853988
+Overall: 0.7170461238769541
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_25.csv
+AUROC: 0.4974137156624971
+
+#####################################################################################3
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_25.csv
+AUROC: 0.6388845411488457
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_25.csv
+AUROC: 0.6420652825089961
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_50.csv
+AUROC: 0.6923097867860689
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_50.csv
+AUROC: 0.6678841224479988
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.6870447348553949
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.7116560182006653
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+AUROC: 0.7469898297184466
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+AUROC: 0.7260327923051871
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_2/biomarker_csv_files/complete_biomarker_training.csv
+AUROC: 0.7443392894319126
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_2/biomarker_csv_files/complete_biomarker_training.csv
+AUROC: 0.7699819105786467
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_3/biomarker_csv_files/complete_biomarker_training.csv
+AUROC: 0.7459632899043078
+
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_3/biomarker_csv_files/complete_biomarker_training.csv
+AUROC: 0.7394173278152162
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_25.csv
+AUROC: 0.7206334947056652
+Par_vit: 0.2689882279676819
+Full_vit: 0.6526422539860569
+IR_HRF: 0.8766674374235047
+DME: 0.8382247625052317
+Fluid_irf: 0.7933323377743698
+Overall: 0.685971003931369
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_50.csv
+AUROC: 0.7297306291778806
+Par_vit: 0.29366804035349703
+Full_vit: 0.6835522043478095
+IR_HRF: 0.8692467417640375
+DME: 0.8558124616927553
+Fluid_irf: 0.8091101897906003
+Overall: 0.70227792758974
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.7451691066099763
+Par_vit: 0.2880418623964187
+Full_vit: 0.7342446677529109
+IR_HRF: 0.8688664045143264
+DME: 0.8755024919964002
+Fluid_irf: 0.809300003280363
+Overall: 0.7151910859880839
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_eye_id_cst_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_25.csv
+AUROC: 0.7606071496292637
+Par_vit: 0.3680634120190578
+Full_vit: 0.6740425690640943
+IR_HRF: 0.884168292761098
+DME: 0.8599856418667421
+Fluid_irf: 0.8144295249134206
+Overall: 0.7201378881248826
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_eye_id_cst_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_50.csv
+AUROC: 0.7744525881933022
+Par_vit: 0.4244113754108251
+Full_vit: 0.7018926778668995
+IR_HRF: 0.8837024902610202
+DME: 0.8666493456726231
+Fluid_irf: 0.8141568338340915
+Overall: 0.7381625446090919
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_eye_id_cst_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+full_vit
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training_75.csv
+AUROC: 0.7858894648399288
+Par_vit: 0.42594129145860915
+Full_vit: 0.7361326605723556
+IR_HRF: 0.8856238836168626
+DME: 0.867246178951929
+Fluid_irf: 0.8163991282877628
+Overall: 0.7462686285775038
+##########################################################################
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_fluirf.csv
+fluid_irf
+Accuracy: 81.83333333333333
+Precision: 0.9057924388239349
+Recall: 0.7106666666666666
+
+
+fluid_irf
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_fluirf.csv
+Accuracy: 80.36666666666666
+Precision: 0.9222678621582348
+Recall: 0.668
+
+
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_DRT_ME.csv
+drt
+Accuracy: 82.38095238095237
+Precision: 0.9547561776928183
+Recall: 0.683142829433199
+
+
+drt
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_DRT_ME.csv
+Accuracy: 85.17006802721089
+Precision: 0.9234605198935838
+Recall: 0.7677149548343927
+
+#########################################################################################################33
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 60.9
+Precision: 0.5751724137931035
+Recall: 0.834
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 76.0
+Precision: 0.8316326530612245
+Recall: 0.652
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 57.6
+Precision: 0.5473815461346634
+Recall: 0.878
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 76.1
+Precision: 0.8190709046454768
+Recall: 0.67
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 62.6
+Precision: 0.5960365853658537
+Recall: 0.782
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 75.0
+Precision: 0.8633720930232558
+Recall: 0.594
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 75.4
+Precision: 0.7204861111111112
+Recall: 0.83
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 83.16326530612245
+Precision: 0.922077922077922
+Recall: 0.7244897959183674
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 75.5
+Precision: 0.7256637168141593
+Recall: 0.82
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 82.75510204081633
+Precision: 0.9301075268817204
+Recall: 0.7075664621676891
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 76.1
+Precision: 0.7301587301587301
+Recall: 0.828
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 83.06122448979592
+Precision: 0.9216710182767625
+Recall: 0.721881390593047
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 52.5
+Precision: 0.6050420168067226
+Recall: 0.144
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 75.7
+Precision: 0.7682672233820459
+Recall: 0.736
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 54.4
+Precision: 0.6264367816091954
+Recall: 0.218
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 76.2
+Precision: 0.7519230769230769
+Recall: 0.782
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 57.8
+Precision: 0.6308724832214765
+Recall: 0.376
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 76.1
+Precision: 0.7604790419161677
+Recall: 0.762
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 81.53061224489795
+Precision: 0.9329608938547486
+Recall: 0.6802443991853361
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 62.6
+Precision: 0.7423076923076923
+Recall: 0.386
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 79.89795918367346
+Precision: 0.9454545454545454
+Recall: 0.6354378818737271
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 65.3
+Precision: 0.7270029673590505
+Recall: 0.49
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 80.51020408163265
+Precision: 0.9437869822485208
+Recall: 0.6496945010183299
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 62.9
+Precision: 0.749034749034749
+Recall: 0.388
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 75.5
+Precision: 0.8072289156626506
+Recall: 0.67
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 66.2
+Precision: 0.6269592476489029
+Recall: 0.8
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 74.5
+Precision: 0.8678678678678678
+Recall: 0.578
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 62.2
+Precision: 0.5800524934383202
+Recall: 0.884
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 74.7
+Precision: 0.8538681948424068
+Recall: 0.596
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 61.4
+Precision: 0.5736434108527132
+Recall: 0.888
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 73.6
+Precision: 0.8352272727272727
+Recall: 0.588
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 61.2
+Precision: 0.5802292263610315
+Recall: 0.81
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 73.3
+Precision: 0.841642228739003
+Recall: 0.574
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 61.1
+Precision: 0.5798561151079137
+Recall: 0.806
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 72.9
+Precision: 0.8397626112759644
+Recall: 0.566
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 56.7
+Precision: 0.5413070283600493
+Recall: 0.878
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 79.38775510204081
+Precision: 0.9287833827893175
+Recall: 0.6374745417515275
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 78.2
+Precision: 0.8012820512820513
+Recall: 0.75
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 79.79591836734694
+Precision: 0.9271137026239067
+Recall: 0.6476578411405295
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 79.2
+Precision: 0.7862745098039216
+Recall: 0.802
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 81.0204081632653
+Precision: 0.9196675900277008
+Recall: 0.6789366053169734
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 80.9
+Precision: 0.77737881508079
+Recall: 0.866
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 77.4
+Precision: 0.7773279352226721
+Recall: 0.768
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 65.5
+Precision: 0.7444794952681388
+Recall: 0.472
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 77.2
+Precision: 0.7605363984674329
+Recall: 0.794
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 65.7
+Precision: 0.7028423772609819
+Recall: 0.544
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+full_vit
+Accuracy: 77.8
+Precision: 0.7612781954887218
+Recall: 0.81
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 65.9
+Precision: 0.750788643533123
+Recall: 0.476
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 61.5
+Precision: 0.7017543859649122
+Recall: 0.4
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 80.71428571428571
+Precision: 0.8823529411764706
+Recall: 0.7069672131147541
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 59.0
+Precision: 0.690677966101695
+Recall: 0.326
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 80.61224489795919
+Precision: 0.8768844221105527
+Recall: 0.7122448979591837
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+partial_vit
+Accuracy: 60.7
+Precision: 0.6945454545454546
+Recall: 0.382
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+drt
+Accuracy: 80.0
+Precision: 0.8805194805194805
+Recall: 0.6932515337423313
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 59.6
+Precision: 0.5650406504065041
+Recall: 0.834
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 72.5
+Precision: 0.8504672897196262
+Recall: 0.546
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 56.1
+Precision: 0.5367027677496992
+Recall: 0.892
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 72.9
+Precision: 0.8397626112759644
+Recall: 0.566
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+ir_hrf
+Accuracy: 58.7
+Precision: 0.5577689243027888
+Recall: 0.84
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv
+fluid_irf
+Accuracy: 73.0
+Precision: 0.8010471204188482
+Recall: 0.612
+
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+ir_hrf
+Alignment: 0.6632172501235052
+Uniformity: -1.1791770044192815
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+full_vit
+Alignment: 0.6288124825909445
+Uniformity: -1.1294521573406526
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+partial_vit
+Alignment: 0.6257224969724626
+Uniformity: -1.119193770923394
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+drt
+Alignment: 0.6391746299330047
+Uniformity: -1.136933803849561
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/n_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+fluid_irf
+Alignment: 0.6433310296923556
+Uniformity: -1.1481664655150798
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+full_vit
+Alignment: 0.1585620973672286
+Uniformity: -0.30319873216866966
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+partial_vit
+Alignment: 0.1566888840815957
+Uniformity: -0.29981117730791307
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+drt
+Alignment: 0.15426425493905793
+Uniformity: -0.2953097570329213
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+fluid_irf
+Alignment: 0.15669067351781085
+Uniformity: -0.3001316485465713
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+full_vit
+Alignment: 0.1588351250948259
+Uniformity: -0.3037777202110674
+/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/bcva_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth
+ir_hrf
+Alignment: 0.15719104303584797
+Uniformity: -0.3014927832694322

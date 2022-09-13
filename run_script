@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+# BCVA
+
+python training_main/clinical_sup_contrast.py --dataset 'Prime_TREX_DME_Fixed' --patient_split 1 --batch_size 64 --num_methods 1  --epochs 25 --method1 'bcva' --train_image_path '/data/Datasets/OLIVES/Patient_Split_1/training_unlabeled/prime_trex.npy'

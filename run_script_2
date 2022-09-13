@@ -1,0 +1,98 @@
+#!/bin/bash
+
+
+
+# 25 CST
+
+# CST
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'fluid_irf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_fluirf.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'fluid_irf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_fluirf.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'fluid_irf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_fluirf.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'drt' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_DRT_ME.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'drt' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_DRT_ME.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'drt' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_DRT_ME.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'full_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'full_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'full_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'partial_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_PAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'partial_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_PAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'partial_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_PAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'ir_hrf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_IRHRF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'ir_hrf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_IRHRF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'ir_hrf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_IRHRF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_Fixed_models/cst_n_n_n_n_1_1_Prime_TREX_DME_Fixed_lr_resnet18_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+# Eye ID
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'ir_hrf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_IRHRF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'ir_hrf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_IRHRF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'ir_hrf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_IRHRF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'full_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'full_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'full_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_FAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'partial_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_PAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'partial_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_PAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'partial_vit' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_PAVF.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'drt' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_DRT_ME.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'drt' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_DRT_ME.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'drt' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_DRT_ME.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'fluid_irf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_fluirf.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'fluid_irf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_fluirf.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
+
+
+python training_main/main_linear.py --batch_size 64 --patient_split 1 --biomarker 'fluid_irf' --dataset 'Prime' --epochs 25 --device 'cuda:1' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_fluirf.csv' --results_dir '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results2.txt' --ckpt '/home/kiran/Desktop/Dev/SupCon/save/SupCon/Prime_TREX_DME_models/patient_n_n_n_n_Prime_TREX_DME_resnet18_lr_0.001_decay_0.0001_bsz_64_temp_0.07_trial_0/last.pth'
