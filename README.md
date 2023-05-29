@@ -9,9 +9,19 @@ and [GitHub](https://github.com/olivesgatech) for other interesting work!!!
 
 ***
 
+## Citation
+
 K. Kokilepersaud, S. Trejo Corona, M. Prabhushankar, G. AlRegib, C. Wykoff, 
 "Clinically Labeled Contrastive Learning for OCT Biomarker Classification," 
 in IEEE Journal of Biomedical and Health Informatics, 2023, May. 15 2023.
+
+>@article{kokilepersaud2023clinically,
+  title={Clinically Labeled Contrastive Learning for OCT Biomarker Classification},
+  author={Kokilepersaud, Kiran and Corona, Stephanie Trejo and Prabhushankar, Mohit and AlRegib, Ghassan and Wykoff, Charles},
+  journal={IEEE Journal of Biomedical and Health Informatics},
+  year={2023},
+  publisher={IEEE}
+}
 
 ## Abstract
 This paper presents a novel positive and negative set selection
