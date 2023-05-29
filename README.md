@@ -82,11 +82,25 @@ Testing files are located in the folder:
 
 
 
-1. Go to starting directory and type:
+1. Set the python path with: **export PYTHONPATH=$PYTHONPATH:$PWD**
 
-export PYTHONPATH=$PYTHONPATH:$PWD
+2. Train the backbone network with the supervised contrastive loss using the parameters specified in config/config_supcon.py \
+a) Specify number of clinical labels to train with --num_methods parameter \
+b) Specify which clinical labels to train with --method1, --method2, etc. \
+c) Specify which dataset to train within in the --dataset field \
+d) An example of a script would be: \
+python training_main/clinical_sup_contrast.py --dataset 'Prime_TREX_DME_Fixed' --num_methods 1 --method1 'bcva'
 
-before doing any experiments.
+3. Train the appended linear using the parameters specified in config/config_linear.py \
+a) Set the super flag to identify whether to use contrastively trained backbone (0), completely supervised (1), or fusion supervised (2). \
+b) Set the multi flag to (1) in order to control whether multi-label classification is used and (0) otherwise. \
+c) If not using multi-label classification, then set the biomarker flag to the biomarker of interest used in this study. \
+d) Set the --dataset field. \
+e) An example of this script would be: 
+python training_main/main_linear.py --dataset 'Prime' --multi 0 --super 0 --ckpt 'path_to_checkpoint file' --biomarker 'fluid_irf'
 
-2. Set training setup with run_script
-3. Type bash run_script to run experiments
+### Acknowledgements
+
+This work was done in collaboration with the [Retina Consultants of Texas](https://www.retinaconsultantstexas.com/).
+
+This codebase utilized was partly constructed with code from the [Supervised Contrastive Learning](https://github.com/HobbitLong/SupContrast) Github.
