@@ -9,15 +9,15 @@ def parse_option():
                         help='print frequency')
     parser.add_argument('--save_freq', type=int, default=50,
                         help='save frequency')
-    parser.add_argument('--batch_size', type=int, default=64,
+    parser.add_argument('--batch_size', type=int, default=128,
                         help='batch_size')
     parser.add_argument('--num_workers', type=int, default=8,
                         help='num of workers to use')
-    parser.add_argument('--epochs', type=int, default=25,
+    parser.add_argument('--epochs', type=int, default=100,
                         help='number of training epochs')
     parser.add_argument('--device', type=str, default='cuda:0')
     # optimization
-    parser.add_argument('--learning_rate', type=float, default=0.001,
+    parser.add_argument('--learning_rate', type=float, default=0.05,
                         help='learning rate')
     parser.add_argument('--patient_lambda', type=float, default=1,
                         help='learning rate')
@@ -35,14 +35,14 @@ def parse_option():
     parser.add_argument('--test_csv_path', type=str, default='test data csv')
     parser.add_argument('--train_image_path', type=str, default='train data csv')
     parser.add_argument('--test_image_path', type=str, default='test data csv')
-    parser.add_argument('--results_dir', type=str, default='/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results.txt')
+    parser.add_argument('--results_dir_contrastive', type=str, default='/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/results.txt')
     parser.add_argument('--percentage', type=int, default=10,
                         help='momentum')
     parser.add_argument('--discrete_level', type=int, default=10,
                         help='discretization Level')
     parser.add_argument('--parallel', type=int, default=1, help='data parallel')
     # model dataset
-    parser.add_argument('--model', type=str, default='resnet18')
+    parser.add_argument('--model', type=str, default='resnet50')
     parser.add_argument('--dataset', type=str, default='TREX_DME',
                         choices=[ 'OCT', 'OCT_Cluster', 'Prime', 'PrimeBio',
                                  'Recovery_Compressed',

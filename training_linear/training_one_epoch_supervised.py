@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.metrics import precision_score,recall_score
 from config.config_linear import parse_option
 from utils.utils import set_loader_new, set_model, set_optimizer, adjust_learning_rate
-from models.resnet import SupCEResNet
+from models.resnet import SupCEResNet, SupCEResNet_Original
 def main_supervised():
     best_acc = 0
     opt = parse_option()
@@ -22,7 +22,6 @@ def main_supervised():
     prec_list = []
     rec_list = []
     for i in range(0, 3):
-    # training routine
         model = SupCEResNet(name='resnet18',num_classes=2)
         model = model.to(device)
         criterion = torch.nn.CrossEntropyLoss()

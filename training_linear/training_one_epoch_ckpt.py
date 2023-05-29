@@ -1,12 +1,13 @@
 import torch
-from utils.utils import AverageMeter,warmup_learning_rate,accuracy
+from utils.utils import AverageMeter,warmup_learning_rate,accuracy, save_model
 import sys
 import time
 import numpy as np
 from sklearn.metrics import precision_score,recall_score
 from config.config_linear import parse_option
+import torch.nn as nn
 from utils.utils import set_loader_new, set_model, set_optimizer, adjust_learning_rate
-
+import pandas as pd
 def main():
     best_acc = 0
     opt = parse_option()
@@ -18,8 +19,9 @@ def main():
     acc_list = []
     prec_list = []
     rec_list = []
+    spec_list = []
     # training routine
-    for i in range(0,1):
+    for i in range(0,3):
         model, classifier, criterion = set_model(opt)
 
         optimizer = set_optimizer(opt, classifier)
@@ -34,25 +36,15 @@ def main():
             print('Train epoch {}, total time {:.2f}, accuracy:{:.2f}'.format(
                 epoch, time2 - time1, acc))
 
-        loss, test_acc,spec,rec = validate(test_loader, model, classifier, criterion, opt)
+        loss, test_acc,prec,rec,spec = validate(test_loader, model, classifier, criterion, opt)
 
         acc_list.append(test_acc)
-        prec_list.append(spec)
+        prec_list.append(prec)
         rec_list.append(rec)
-
-    with open(opt.results_dir, "a") as file:
-        # Writing data to a file
-        file.write(opt.ckpt + '\n')
-        file.write(opt.train_csv_path + '\n')
-        file.write(opt.biomarker + '\n')
-        file.write('Accuracy: ' + str(test_acc) + '\n')
-        file.write('Specificity: ' + str(spec) + '\n')
-        file.write('Recall: ' + str(rec) + '\n')
-        file.write('\n')
-
-    print('Accuracy: ' + str(sum(acc_list)/3))
-    print('Precision: ' +str(sum(prec_list) / 3))
-    print('Recall: ' +str(sum(rec_list) / 3))
+        spec_list.append(spec)
+    df = pd.DataFrame({'Accuracy':acc_list,'Precision':prec_list,'Recall':rec_list,'Specificity':spec_list})
+    excel_name = opt.backbone_training + '_' + opt.biomarker + '_' + str(opt.patient_split) + '.csv'
+    df.to_csv(excel_name, index=False)
 
 def train_OCT(train_loader, model, classifier, criterion, optimizer, epoch, opt):
     """one epoch training"""
@@ -187,10 +179,9 @@ def validate(val_loader, model, classifier, criterion, opt):
 
     out_array = np.array(out_list)
 
-    spec = recall_score(label_array.flatten(), out_array.flatten(),pos_label=0)
+    prec = precision_score(label_array.flatten(), out_array.flatten())
     rec = recall_score(label_array.flatten(), out_array.flatten())
+    spec = recall_score(label_array.flatten(), out_array.flatten(), pos_label=0)
 
-    print('Specificity = '+ str(recall_score(label_array.flatten(),out_array.flatten(),pos_label=0)))
-    print('Recall = ' + str(recall_score(label_array.flatten(), out_array.flatten())))
-    print(' * Acc@1 {top1.avg:.3f}'.format(top1=top1))
-    return losses.avg, top1.avg,spec,rec
+
+    return losses.avg, top1.avg,prec, rec, spec

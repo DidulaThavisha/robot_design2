@@ -5,14 +5,16 @@ import numpy as np
 import torch
 import torch.optim as optim
 import os
-from sklearn.metrics import roc_auc_score
-from models.resnet import  SupConResNet,LinearClassifier,LinearClassifier_MultiLabel
+from sklearn.metrics import roc_auc_score, f1_score
+from models.resnet import  SupConResNet,LinearClassifier,LinearClassifier_MultiLabel, SupConResNet_Original, SupConResNet_Original_Headless
 import torch.backends.cudnn as cudnn
 from torchvision import transforms, datasets
+from loss.loss import add_kd_loss
 from datasets.oct_dataset import OCTDataset
 from datasets.biomarker import BiomarkerDatasetAttributes
 from datasets.biomarker_multi import BiomarkerDatasetAttributes_MultiLabel
 from datasets.biomarker_fusion import BiomarkerDatasetAttributes_Fusion
+from datasets.biomarker_multi_complete import BiomarkerDatasetAttributes_MultiLabel_Complete
 from datasets.biomarker_multi_fusion import BiomarkerDatasetAttributes_MultiLabel_MultiClass
 
 import torch.nn as nn
@@ -20,19 +22,31 @@ def set_model(opt):
 
 
     if(opt.multi == 0):
-        model = SupConResNet(name=opt.model)
+        model = SupConResNet_Original(name=opt.model)
         criterion = torch.nn.CrossEntropyLoss()
 
         classifier = LinearClassifier(name=opt.model, num_classes=2)
     elif(opt.multi == 1 and opt.super == 3):
-        model = SupConResNet(name=opt.model)
+        model = SupConResNet_Original(name=opt.model)
         criterion = torch.nn.BCEWithLogitsLoss()
         classifier = LinearClassifier(name=opt.model, num_classes=1)
-    elif(opt.multi == 1 and opt.super!=3):
-        model = SupConResNet(name=opt.model)
-        criterion = torch.nn.BCELoss()
+    elif(opt.multi == 1 and opt.super == 8):
+        print('Hello')
+        model = SupConResNet_Original(name=opt.model)
+        criterion = torch.nn.BCEWithLogitsLoss()
 
-        classifier = LinearClassifier_MultiLabel(name=opt.model, num_classes=5)
+        classifier = LinearClassifier(name=opt.model, num_classes=16)
+    elif(opt.multi == 1 and opt.super!=3):
+        model = SupConResNet_Original(name=opt.model)
+        criterion = torch.nn.BCEWithLogitsLoss()
+
+        classifier = LinearClassifier(name=opt.model, num_classes=5)
+
+    elif (opt.multi == 1 and opt.super != 3):
+        model = SupConResNet_Original(name=opt.model)
+        criterion = torch.nn.BCEWithLogitsLoss()
+
+        classifier = LinearClassifier(name=opt.model, num_classes=5)
     ckpt = torch.load(opt.ckpt, map_location='cpu')
     state_dict = ckpt['model']
     device = opt.device
@@ -53,6 +67,48 @@ def set_model(opt):
         model.load_state_dict(state_dict)
 
     return model, classifier, criterion
+
+
+
+
+def set_model_student_teacher(opt):
+
+
+    if(opt.multi == 0):
+        model_student = SupConResNet_Original_Headless(name=opt.model,use_head=False)
+        model = SupConResNet_Original_Headless(name=opt.model,use_head=False)
+
+        classifier = LinearClassifier(name=opt.model, num_classes=2)
+        model_teacher = nn.Sequential(model,classifier)
+        model_student = nn.Sequential(model_student,classifier)
+    criterion = torch.nn.CrossEntropyLoss()
+    ckpt = torch.load(opt.ckpt, map_location='cpu')
+    state_dict = ckpt['model']
+
+    device = opt.device
+    if torch.cuda.is_available():
+        if opt.parallel == 0:
+            model.encoder = torch.nn.DataParallel(model.encoder)
+        else:
+            new_state_dict = {}
+            for k, v in state_dict.items():
+                k = k.replace("module.", "")
+                k = '0.encoder.' + k[2:]
+                if(k=='0.encoder.fc.weight'):
+                    k = '1.fc.weight'
+                if (k == '0.encoder.fc.bias'):
+                    k = '1.fc.bias'
+                #k = k.replace("encoder.", "")
+                new_state_dict[k] = v
+            state_dict = new_state_dict
+        model_teacher = model_teacher.to(device)
+        model_student = model_student.to(device)
+        criterion = criterion.to(device)
+        cudnn.benchmark = True
+
+        model_teacher.load_state_dict(state_dict)
+
+    return model_teacher, model_student, criterion
 
 def set_loader_new(opt):
     # construct data loader
@@ -96,8 +152,7 @@ def set_loader_new(opt):
 
 
     elif opt.dataset =='Prime':
-        print(opt.patient_split)
-        print(opt.biomarker)
+
         data_path_train = opt.train_image_path
         csv_path_train = opt.train_csv_path
         csv_path_test = opt.test_csv_path
@@ -109,10 +164,16 @@ def set_loader_new(opt):
         elif(opt.super == 2 and opt.multi == 1):
             train_dataset = BiomarkerDatasetAttributes_MultiLabel_MultiClass(csv_path_train, data_path_train, transforms=train_transform)
             test_dataset = BiomarkerDatasetAttributes_MultiLabel_MultiClass(csv_path_test, data_path_test, transforms=val_transform)
+        elif (opt.multi == 1 and (opt.super == 5 or opt.super ==8)):
+            train_dataset = BiomarkerDatasetAttributes_MultiLabel_Complete(csv_path_train, data_path_train,
+                                                                  transforms=train_transform)
+            test_dataset = BiomarkerDatasetAttributes_MultiLabel_Complete(csv_path_test, data_path_test,
+                                                                 transforms=val_transform)
         elif(opt.multi == 1 and opt.super !=3):
             train_dataset = BiomarkerDatasetAttributes_MultiLabel(csv_path_train, data_path_train,
                                                               transforms=train_transform)
             test_dataset = BiomarkerDatasetAttributes_MultiLabel(csv_path_test, data_path_test, transforms=val_transform)
+
         else:
             train_dataset = BiomarkerDatasetAttributes(csv_path_train,data_path_train,transforms = train_transform)
             test_dataset = BiomarkerDatasetAttributes(csv_path_test,data_path_test,transforms = val_transform)
@@ -128,7 +189,7 @@ def set_loader_new(opt):
     else:
         dl=False
     test_loader = torch.utils.data.DataLoader(
-        test_dataset, batch_size=10, shuffle=True,
+        test_dataset, batch_size=1, shuffle=True,
         num_workers=0, pin_memory=True,drop_last=dl)
 
     return train_loader, test_loader

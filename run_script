@@ -1,6 +1,11 @@
 #!/bin/bash
 
+# CST
 
-# BCVA
+python training_main/clinical_sup_contrast.py --batch_size 128 --patient_split 1 --model 'resnet18' --num_methods 0 --dataset 'Prime_TREX_DME_Fixed' --epochs 25 --device 'cuda:0' --train_image_path '/data/Datasets'
 
-python training_main/clinical_sup_contrast.py --dataset 'Prime_TREX_DME_Fixed' --patient_split 1 --batch_size 64 --num_methods 1  --epochs 25 --method1 'bcva' --train_image_path '/data/Datasets/OLIVES/Patient_Split_1/training_unlabeled/prime_trex.npy'
+
+
+python training_main/main_linear.py --batch_size 128 --patient_split 1 --model 'resnet18' --biomarker 'drt' --backbone_training 'SimCLR_True' --dataset 'Prime' --epochs 25 --device 'cuda:0' --super 0 --multi 0 --train_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv' --test_csv_path '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_DRT_ME.csv' --ckpt '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/save/SupCon/Prime_TREX_DME_Fixed_models/eye_id_SuperClass_Combined_n_n_n_1_1_10_Prime_TREX_DME_Fixed_lr_resnet18_0.05_decay_0.0001_bsz_128_temp_0.07_trial_0__0/last.pth'
+
+

@@ -5,7 +5,8 @@ import time
 import numpy as np
 from config.config_linear import parse_option
 from utils.utils import set_loader_new, set_model, set_optimizer, adjust_learning_rate, accuracy_multilabel
-from sklearn.metrics import average_precision_score,roc_auc_score
+from sklearn.metrics import average_precision_score,roc_auc_score, classification_report
+import pandas as pd
 def train_OCT_multilabel(train_loader, model, classifier, criterion, optimizer, epoch, opt):
     """one epoch training"""
     model.eval()
@@ -75,7 +76,7 @@ def validate_multilabel(val_loader, model, classifier, criterion, opt):
             labels = bio_tensor
             labels = labels.float()
             print(idx)
-            label_list.append(labels.detach().cpu().numpy())
+            label_list.append(labels.squeeze().detach().cpu().numpy())
             labels = labels.to(device)
             bsz = labels.shape[0]
 
@@ -83,8 +84,9 @@ def validate_multilabel(val_loader, model, classifier, criterion, opt):
             output = classifier(model.encoder(images))
 
             loss = criterion(output, labels)
+            output = torch.round(torch.sigmoid(output))
 
-            out_list.append(output.detach().cpu().numpy())
+            out_list.append(output.squeeze().detach().cpu().numpy())
             # update metric
             losses.update(loss.item(), bsz)
 
@@ -93,26 +95,13 @@ def validate_multilabel(val_loader, model, classifier, criterion, opt):
             end = time.time()
 
 
-    label_array = np.concatenate(label_list, axis=0)
-
+    label_array = np.array(label_list)
+    out_array = np.array(out_list)
     out_array = np.concatenate(out_list, axis=0)
-    r = roc_auc_score(label_array, out_array, multi_class='ovr',average='weighted')
+    r = roc_auc_score(label_array, out_array, average='macro')
 
 
-
-    par_vit = average_precision_score(label_array[:, 4], out_array[:, 4], average='micro')
-    full_vit = average_precision_score(label_array[:, 3], out_array[:, 3], average='micro')
-    ir_hrf = average_precision_score(label_array[:, 2], out_array[:, 2], average='micro')
-    dme = average_precision_score(label_array[:, 1], out_array[:, 1], average='micro')
-    fluid_irf = average_precision_score(label_array[:, 0], out_array[:, 0], average='micro')
-
-    overall = (par_vit + full_vit + ir_hrf + dme + fluid_irf) / 5
-    print('Partial_Vit ' + str(average_precision_score(label_array[:, 4], out_array[:, 4], average='micro')))
-    print('Full_Vit ' + str(average_precision_score(label_array[:, 3], out_array[:, 3], average='micro')))
-    print('IR HRF ' + str(average_precision_score(label_array[:, 2], out_array[:, 2], average='micro')))
-    print('DME ' + str(average_precision_score(label_array[:, 1], out_array[:, 1], average='micro')))
-    print('Fluid IRF ' + str(average_precision_score(label_array[:, 0], out_array[:, 0], average='micro')))
-    return losses.avg, r, par_vit, full_vit, ir_hrf,dme, fluid_irf,overall
+    return losses.avg, r
 def main_multilabel():
     best_acc = 0
     opt = parse_option()
@@ -121,9 +110,7 @@ def main_multilabel():
     device = opt.device
     train_loader,  test_loader = set_loader_new(opt)
 
-    acc_list = []
-    prec_list = []
-    rec_list = []
+    r_list = []
     # training routine
     for i in range(0,1):
         model, classifier, criterion = set_model(opt)
@@ -141,20 +128,10 @@ def main_multilabel():
                 epoch, time2 - time1, acc))
 
     # eval for one epoch
-        loss, test_acc, par_vit, full_vit, ir_hrf,dme, fluid_irf,overall = validate_multilabel(test_loader, model, classifier, criterion, opt)
+        loss, r = validate_multilabel(test_loader, model, classifier, criterion, opt)
 
-        acc_list.append(test_acc)
+        r_list.append(r)
 
-
-    with open(opt.results_dir, "a") as file:
-        # Writing data to a file
-        file.write(opt.ckpt + '\n')
-        file.write(opt.biomarker + '\n')
-        file.write(opt.train_csv_path + '\n')
-        file.write('AUROC: ' + str(sum(acc_list)) + '\n')
-        file.write('Par_vit: ' + str(par_vit) + '\n')
-        file.write('Full_vit: ' + str(full_vit) + '\n')
-        file.write('IR_HRF: ' + str(ir_hrf) + '\n')
-        file.write('DME: ' + str(dme) + '\n')
-        file.write('Fluid_irf: ' + str(fluid_irf) + '\n')
-        file.write('Overall: ' + str(overall) + '\n')
+    df = pd.DataFrame({'AUROC': r_list})
+    excel_name = opt.backbone_training + '_' + opt.biomarker + opt.model + str(opt.percentage) + 'multiAUROC' + str(opt.patient_split) + '.csv'
+    df.to_csv(excel_name, index=False)

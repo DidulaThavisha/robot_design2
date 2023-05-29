@@ -677,6 +677,14 @@ def reduce_trex(df_dir,q):
     df = pd.read_csv(df_dir)
     test = df.sample(n=q, random_state=32)
     test.to_csv(df_dir,index=False)
+
+def split_disease_clear(df_dir):
+    df = pd.read_csv(df_dir)
+    df_dis = df[df['Partially attached vitreous face'] == 0]
+    df_health = df[df['Partially attached vitreous face'] == 1]
+    df_health.to_csv('/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_PAVF_0.csv',index=False)
+    df_dis.to_csv('/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/test_biomarker_sets/test_PAVF_1.csv',index=False)
 if __name__ == '__main__':
-    df_dir = '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csv_time_ood_analysis/ood_analysis/training_trex.csv'
-    reduce_trex(df_dir,2940)
+    df_dir = '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv'
+    df = pd.read_csv(df_dir)
+    print(df['PED (serous)'].value_counts())

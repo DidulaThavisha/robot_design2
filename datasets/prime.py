@@ -13,7 +13,7 @@ class PrimeDatasetAttributes(data.Dataset):
         return len(self.df)
 
     def __getitem__(self, idx):
-        path = os.path.join(self.img_dir, self.df.iloc[idx, 0])
+        path = '/data/Datasets/' + self.df.iloc[idx, 0]
         image = Image.open(path).convert("L")
         image = np.array(image)
         image = Image.fromarray(image)

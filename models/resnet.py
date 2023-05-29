@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.models as models
-
+import torchvision
 class BasicBlock(nn.Module):
     expansion = 1
 
@@ -227,6 +227,24 @@ class SupCEResNet(nn.Module):
 
         return self.fc(self.encoder(x))
 
+class SupCEResNet_Original(nn.Module):
+    """encoder + classifier"""
+    def __init__(self, name='resnet50', num_classes=2):
+        super(SupCEResNet_Original, self).__init__()
+        if (name == 'resnet50'):
+            self.encoder = torchvision.models.resnet50(zero_init_residual=True)
+            self.encoder.conv1 = nn.Conv2d(1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+            self.encoder.fc = nn.Identity()
+            self.fc = nn.Linear(2048, num_classes)
+        else:
+            self.encoder = torchvision.models.resnet18(zero_init_residual=True)
+            self.encoder.conv1 = nn.Conv2d(1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+            self.encoder.fc = nn.Identity()
+            self.fc = nn.Linear(2048, num_classes)
+    def forward(self, x):
+
+        return self.fc(self.encoder(x))
+
 
 
 class SupCEResNet_MultiLabel(nn.Module):
@@ -281,7 +299,95 @@ class SupCEResNet_Small(nn.Module):
 
         return self.encoder(x)
 
+class SupConResNet_Original_Headless(nn.Module):
+    def __init__(self, name='resnet50',head='mlp',feat_dim=128,use_head=True):
+        super(SupConResNet_Original_Headless,self).__init__()
+        self.use_head = use_head
+        if(name == 'resnet50'):
+            self.encoder = torchvision.models.resnet50(zero_init_residual=True)
+            self.encoder.conv1 = nn.Conv2d(1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+            self.encoder.fc = nn.Identity()
+            '''
+            if head == 'linear':
+                self.head = nn.Linear(2048, feat_dim)
+            elif head == 'mlp':
+                self.head = nn.Sequential(
+                    nn.Linear(2048, 2048),
+                    nn.ReLU(inplace=True),
+                    nn.Linear(2048, feat_dim)
+                )
+            else:
+                raise NotImplementedError(
+                    'head not supported: {}'.format(head))
+            '''
+        else:
+            self.encoder = torchvision.models.resnet18(zero_init_residual=True)
+            self.encoder.conv1 = nn.Conv2d(1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+            self.encoder.fc = nn.Identity()
+            '''
+            if head == 'linear':
+                self.head = nn.Linear(512, feat_dim)
+            elif head == 'mlp':
+                self.head = nn.Sequential(
+                    nn.Linear(512, 512),
+                    nn.ReLU(inplace=True),
+                    nn.Linear(512, feat_dim)
+                )
+            else:
+                raise NotImplementedError(
+                    'head not supported: {}'.format(head))
+            '''
+    def forward(self, x):
+        feat = self.encoder(x)
+        #if(self.use_head):
+            #feat = F.normalize(self.head(feat), dim=1)
+        return feat
 
+
+
+class SupConResNet_Original(nn.Module):
+    def __init__(self, name='resnet50',head='mlp',feat_dim=128,use_head=True):
+        super(SupConResNet_Original,self).__init__()
+        self.use_head = use_head
+        if(name == 'resnet50'):
+            self.encoder = torchvision.models.resnet50(zero_init_residual=True)
+            self.encoder.conv1 = nn.Conv2d(1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+            self.encoder.fc = nn.Identity()
+
+            if head == 'linear':
+                self.head = nn.Linear(2048, feat_dim)
+            elif head == 'mlp':
+                self.head = nn.Sequential(
+                    nn.Linear(2048, 2048),
+                    nn.ReLU(inplace=True),
+                    nn.Linear(2048, feat_dim)
+                )
+            else:
+                raise NotImplementedError(
+                    'head not supported: {}'.format(head))
+
+        else:
+            self.encoder = torchvision.models.resnet18(zero_init_residual=True)
+            self.encoder.conv1 = nn.Conv2d(1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+            self.encoder.fc = nn.Identity()
+
+            if head == 'linear':
+                self.head = nn.Linear(512, feat_dim)
+            elif head == 'mlp':
+                self.head = nn.Sequential(
+                    nn.Linear(512, 512),
+                    nn.ReLU(inplace=True),
+                    nn.Linear(512, feat_dim)
+                )
+            else:
+                raise NotImplementedError(
+                    'head not supported: {}'.format(head))
+
+    def forward(self, x):
+        feat = self.encoder(x)
+
+        feat = F.normalize(self.head(feat), dim=1)
+        return feat
 class LinearClassifier(nn.Module):
     """Linear classifier"""
     def __init__(self, name='resnet50', num_classes=2):

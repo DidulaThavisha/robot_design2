@@ -8,7 +8,7 @@ from datasets.prime_trex_combined import CombinedDataset
 from datasets.recovery import recovery
 from datasets.trex import TREX
 import torch
-from models.resnet import SupConResNet
+from models.resnet import SupConResNet, SupConResNet_Original
 from loss.loss import SupConLoss
 import torch.backends.cudnn as cudnn
 try:
@@ -20,7 +20,7 @@ import torch.nn as nn
 def set_model_contrast(opt):
 
 
-    model = SupConResNet(name=opt.model)
+    model = SupConResNet_Original(name=opt.model)
 
     criterion = SupConLoss(temperature=opt.temp,device=opt.device)
     device = opt.device
@@ -101,49 +101,18 @@ def set_loader(opt):
         csv_path_train = opt.train_csv_path
         data_path_train = opt.train_image_path
         train_dataset = OCTDataset(csv_path_train,data_path_train,transforms = TwoCropTransform(train_transform))
+    elif opt.dataset == 'CombinedBio':
+        csv_path_train = '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv'
+        data_path_train = opt.train_image_path
+        train_dataset = BiomarkerDatasetAttributes(csv_path_train,data_path_train,transforms = TwoCropTransform(train_transform))
     elif opt.dataset == 'Prime':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) +'/full_prime_train.csv'
+        csv_path_train = './final_csvs_' + str(opt.patient_split) + '/complete_prime_recovery_trex'+'/full_prime_train.csv'
         data_path_train = opt.train_image_path
         train_dataset = PrimeDatasetAttributes(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
-    elif opt.dataset == 'CombinedBio' or opt.dataset == 'CombinedBio_Modfied':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) +'/complete_biomarker_training.csv'
-        data_path_train =  opt.train_image_path#'/data/Datasets/Prime_FULL_128'
-        train_dataset = BiomarkerDatasetAttributes(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
-    elif opt.dataset == 'Recovery':
-        csv_path_train = opt.train_csv_path
-        data_path_train = opt.train_image_path
-        train_dataset = recovery(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
-    elif opt.dataset == 'TREX_DME':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) +'/datasets_combined/trex_compressed.csv'
-        data_path_train = opt.train_image_path
-        train_dataset = TREX(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
-    elif opt.dataset == 'TREX_DME_Recovery':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) +'/datasets_combined/trex_compressed.csv'
-        data_path_train = opt.train_image_path
-        train_dataset = CombinedDataset(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
-    elif opt.dataset == 'Prime_Recovery':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) +'/datasets_combined/trex_compressed.csv'
-        data_path_train = opt.train_image_path
-        train_dataset = CombinedDataset(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
-    elif opt.dataset == 'Prime_Recovery_TREX_DME':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) +'/datasets_combined/trex_compressed.csv'
-        data_path_train = opt.train_image_path
-        train_dataset = CombinedDataset(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
+
     elif opt.dataset == 'Prime_TREX_DME_Fixed' or opt.dataset == 'Prime_TREX_Alpha' \
             or opt.dataset == 'Patient_Split_2_Prime_TREX' or opt.dataset == 'Patient_Split_3_Prime_TREX':
         csv_path_train = './final_csvs_' + str(opt.patient_split) +'/datasets_combined/prime_trex_compressed.csv'
-        data_path_train = opt.train_image_path
-        train_dataset = CombinedDataset(csv_path_train, data_path_train,image_shape = (62126,496,504), transforms=TwoCropTransform(train_transform))
-    elif opt.dataset == 'Prime_TREX_DME_Discrete':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) + '/Discretized_Datasets/cuts_' + str(opt.discrete_level) + ".csv"
-        data_path_train = opt.train_image_path
-        train_dataset = CombinedDataset(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
-    elif opt.dataset == 'Prime_Compressed':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) +'/datasets_combined/prime_compressed.csv'
-        data_path_train = opt.train_image_path
-        train_dataset = CombinedDataset(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
-    elif opt.dataset == 'Recovery_Compressed':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) +'/datasets_combined/recovery_compressed.csv'
         data_path_train = opt.train_image_path
         train_dataset = CombinedDataset(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
     else:
@@ -158,7 +127,7 @@ def set_loader(opt):
 
 def set_model(opt):
 
-    model = SupConResNet(name=opt.model)
+    model = SupConResNet_Original(name=opt.model)
 
     criterion = SupConLoss(temperature=opt.temp,device=opt.device)
     device = opt.device

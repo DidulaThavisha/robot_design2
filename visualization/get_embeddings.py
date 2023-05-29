@@ -3,13 +3,13 @@
 from config.config_linear import parse_option
 import numpy as np
 import torch
-
+from PIL import Image
 from tqdm import tqdm
 from sklearn.manifold import TSNE
 
 import matplotlib.patheffects as PathEffects
 
-from models.resnet import  SupConResNet
+from models.resnet import  SupConResNet, SupConResNet_Original
 import torch.backends.cudnn as cudnn
 from torchvision import transforms, datasets
 import matplotlib.pyplot as plt
@@ -21,7 +21,7 @@ import scipy.stats as stats
 
 def set_model(opt):
 
-    model = SupConResNet(name=opt.model)
+    model = SupConResNet_Original(name=opt.model)
     criterion = torch.nn.CrossEntropyLoss()
 
 
@@ -68,7 +68,12 @@ def set_loader_new(opt):
 
     train_transform = transforms.Compose([
 
-        transforms.Resize((224, 224)),
+        transforms.RandomResizedCrop(size=224, scale=(0.2, 1.)),
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomApply([
+            transforms.ColorJitter(0.4, 0.4, 0.4, 0.1)
+        ], p=0.8),
+        transforms.RandomGrayscale(p=0.2),
         transforms.ToTensor(),
         normalize,
     ])
@@ -83,7 +88,7 @@ def set_loader_new(opt):
 
 
     data_path_train = opt.train_image_path
-    csv_path_train = './final_csvs_' + str(opt.patient_split) +'/complete_biomarker_training.csv'
+    csv_path_train = './final_csvs_' + str(opt.patient_split) +'/biomarker_csv_files/complete_biomarker_training.csv'
     if (opt.biomarker == 'vit_deb'):
         csv_path_test = './final_csvs_' + str(opt.patient_split) + '/test_biomarker_sets/test_VD.csv'
     elif (opt.biomarker == 'ir_hrf'):
@@ -95,7 +100,7 @@ def set_loader_new(opt):
     elif (opt.biomarker == 'drt'):
         csv_path_test = './final_csvs_'+ str(opt.patient_split) +'/test_biomarker_sets/test_DRT_ME.csv'
     elif(opt.multi == 1):
-        csv_path_test = './final_csvs_'+ str(opt.patient_split) +'/complete_biomarker_test.csv'
+        csv_path_test = './final_csvs_'+ str(opt.patient_split) +'/biomarker_csv_files/complete_biomarker_test.csv'
     else:
         csv_path_test = './final_csvs_' + str(opt.patient_split) + '/test_biomarker_sets/test_fluirf.csv'
 
@@ -103,6 +108,7 @@ def set_loader_new(opt):
     train_dataset = BiomarkerDatasetAttributes(csv_path_train,data_path_train,transforms = train_transform)
     test_dataset = BiomarkerDatasetAttributes(csv_path_test,data_path_test,transforms = val_transform)
 
+    test_dataset = TwoAugUnsupervisedDataset(test_dataset, transform=train_transform)
 
     train_sampler = None
     train_loader = torch.utils.data.DataLoader(
@@ -115,7 +121,7 @@ def set_loader_new(opt):
     else:
         dl=False
     test_loader = torch.utils.data.DataLoader(
-        test_dataset, batch_size=1, shuffle=True,
+        test_dataset, batch_size=64, shuffle=True,
         num_workers=0, pin_memory=True,drop_last=dl)
 
     return train_loader, test_loader
@@ -126,7 +132,9 @@ def main():
     y, matrix = get_embeddings(test_loader,model)
 
 
-    tsne = TSNE(random_state=32,n_components=1).fit_transform(matrix)
+    #tsne = TSNE(random_state=32,n_components=2).fit_transform(matrix)
+    #fashion_scatter(tsne,y,opt)
+    '''
     class_present = np.zeros((500,1))
     class_absent = np.zeros((500,1))
 
@@ -157,8 +165,9 @@ def main():
     plt.legend()
     plt.title('PAVF TSNE Gaussian Seperability')
     plt.show()
+    '''
 
-def fashion_scatter(x, colors):
+def fashion_scatter(x, colors,opt):
     # choose a color palette with seaborn.
     num_classes = len(np.unique(colors))
     palette = np.array(sns.color_palette("hls", num_classes))
@@ -173,7 +182,7 @@ def fashion_scatter(x, colors):
     ax.axis('off')
     ax.axis('tight')
     plt.legend(handles = sc.legend_elements()[0], labels = classes)
-
+    '''
     # add the labels for each digit corresponding to the label
     txts = []
 
@@ -185,29 +194,61 @@ def fashion_scatter(x, colors):
             PathEffects.Stroke(linewidth=5, foreground="w"),
             PathEffects.Normal()])
         txts.append(txt)
-
-    plt.show()
+    '''
+    path = './tsne_plots/' + opt.biomarker + '_' +  opt.backbone_training + '.png'
+    plt.savefig(path)
     return f, ax
+
+class TwoAugUnsupervisedDataset(torch.utils.data.Dataset):
+    r"""Returns two augmentation and no labels."""
+    def __init__(self, dataset, transform):
+        self.dataset = dataset
+        self.transform = transform
+
+    def __getitem__(self, index):
+        image, vit_deb,ir_hrf, full_vit,partial_vit,fluid_irf,drt,eye_id,bcva,cst,patient = self.dataset[index]
+        image = image.squeeze().detach().cpu().numpy()
+        image = Image.fromarray((image * 255).astype(np.uint8)).convert('L')
+        return self.transform(image), self.transform(image),vit_deb,ir_hrf, full_vit,partial_vit,fluid_irf,drt,eye_id,bcva,cst,patient
+
+    def __len__(self):
+        return len(self.dataset)
 def get_embeddings(val_loader,model):
     arr = []
     labels_vec = []
     opt = parse_option()
     device = opt.device
+    align_vec = []
+    unif_vec = []
     with torch.no_grad():
-        for idx, (images, vit_deb,ir_hrf, full_vit,partial_vit,fluid_irf,drt,eye_id,bcva,cst,patient) in enumerate(tqdm(val_loader)):
-            images = images.float().to(device)
-            labels = partial_vit
+        for idx, (image, image_y, vit_deb,ir_hrf, full_vit,partial_vit,fluid_irf,drt,eye_id,bcva,cst,patient) in enumerate(tqdm(val_loader)):
+            #images = images.float().to(device)
 
-            features = model(images)
-            #images = torch.cat([images[0], images[1]], dim=0)
-            vec = features.squeeze().detach().cpu().numpy()
+            f_x, f_y = model.encoder(torch.cat([image.to(device), image_y.to(device)])).chunk(2)
+            print(f_x.shape)
+            f_x -= f_x.min(1, keepdim=True)[0]
+            f_x /= f_x.max(1, keepdim=True)[0]
+            f_y -= f_y.min(1, keepdim=True)[0]
+            f_y /= f_y.max(1, keepdim=True)[0]
+            align_vec.append(align_loss(f_x, f_y, 2).detach().cpu().numpy())
+            unif_loss = (uniform_loss(f_x, t=2) + uniform_loss(f_y, t=2)) / 2
 
-            arr.append(vec)
-            labels_vec.append(labels.item())
+            unif_vec.append(unif_loss.detach().cpu().numpy())
+            #arr.append(f_x)
+            #labels_vec.append(drt.item())
+    print('Average Alignment = ' + str(sum(align_vec) / len(align_vec)))
+    print('Average Uniformity = ' + str(sum(unif_vec) / len(unif_vec)))
+
+
     y = np.array(labels_vec)
     matrix = np.array(arr)
     return y, matrix
+def align_loss(x, y, alpha=2):
+    return (x - y).norm(p=2, dim=1).pow(alpha).mean()
 
+
+def uniform_loss(x, t=2):
+    return torch.pdist(x, p=2).pow(2).mul(-t).exp().mean().log()
 
 if __name__ == '__main__':
     main()

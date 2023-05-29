@@ -13,7 +13,6 @@ from training_supcon.training_one_epoch_alpha import train_Alpha
 from training_supcon.training_one_epoch_prime import train_Prime
 from training_supcon.training_one_epoch_prime_trex_combined import train_Combined
 from training_supcon.training_one_epoch_recovery import train_Recovery
-
 def main():
     opt = parse_option()
 
@@ -28,7 +27,6 @@ def main():
 
     # tensorboard
     logger = tb_logger.Logger(logdir=opt.tb_folder, flush_secs=2)
-
     # training routine
     for epoch in range(1, opt.epochs + 1):
         adjust_learning_rate(opt, optimizer, epoch)
@@ -48,7 +46,7 @@ def main():
              or opt.dataset =='Prime_Compressed' or opt.dataset == 'Recovery_Compressed'
              or opt.dataset == 'Prime_TREX_DME_Fixed' or opt.dataset == 'Prime_TREX_DME_Discrete') \
                 or opt.dataset == 'Patient_Split_2_Prime_TREX' or opt.dataset == 'Patient_Split_3_Prime_TREX':
-            loss,avg_pos,avg_neg,avg_pos_mean,avg_neg_mean,avg_pos_std,avg_neg_std = train_Combined(train_loader, model, criterion, optimizer, epoch, opt)
+            loss = train_Combined(train_loader, model, criterion, optimizer, epoch, opt)
         elif(opt.dataset == 'Prime_TREX_Alpha'):
             loss = train_Alpha(train_loader, model, criterion, optimizer, epoch, opt)
         elif (opt.dataset == 'OCT'):
@@ -59,24 +57,12 @@ def main():
         # tensorboard logger
         logger.log_value('loss', loss, epoch)
         logger.log_value('learning_rate', optimizer.param_groups[0]['lr'], epoch)
-        if(opt.dataset == 'Prime_TREX_DME_Fixed'):
-            with open(opt.results_dir, "a") as file:
-                # Writing data to a file
-                file.write(opt.ckpt + '\n')
-                file.write('Epoch' + str(epoch) + '\n')
-                file.write('Average Negatives: ' + str(avg_pos) + '\n')
-                file.write('Average Positives: ' + str(avg_neg) + '\n')
-                file.write('Average Positives Mean: ' + str(avg_pos_mean) + '\n')
-                file.write('Average Negtives Mean: ' + str(avg_neg_mean) + '\n')
-                file.write('Average Positives Std: ' + str(avg_pos_std) + '\n')
-                file.write('Average Negtives Std: ' + str(avg_neg_std) + '\n')
-                file.write('\n')
+
         if epoch % opt.save_freq == 0:
             save_file = os.path.join(
                 opt.save_folder, 'ckpt_epoch_{epoch}.pth'.format(epoch=epoch))
             save_model(model, optimizer, opt, epoch, save_file)
 
-    # save the last model
     save_file = os.path.join(
         opt.save_folder, 'last.pth')
     save_model(model, optimizer, opt, opt.epochs, save_file)

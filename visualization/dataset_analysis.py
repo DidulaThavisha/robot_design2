@@ -450,13 +450,17 @@ def clinical_assoc(df):
     df = pd.read_csv(df)
     cst_vector = []
     bcva_vector = []
+    eye_vector = []
     for i in range(0, len(df)):
         cst = df.iloc[i, 2]
         bcva = df.iloc[i, 1]
+        eye = df.iloc[i,3]
         if (cst not in cst_vector):
             cst_vector.append(cst)
         if (bcva not in bcva_vector):
             bcva_vector.append(bcva)
+        if(eye not in eye_vector):
+            eye_vector.append(eye)
 
     bcva_count_tracker = np.zeros((len(bcva_vector)))
 
@@ -468,6 +472,15 @@ def clinical_assoc(df):
     bcva_vector = np.array(bcva_vector)
 
     cst_vector = np.array(cst_vector)
+
+    eye_count_tracker = np.zeros((len(eye_vector)))
+    for j in tqdm(range(0, len(eye_vector))):
+        eye_tracker = []
+        target_eye = eye_vector[j]
+        for i in range(0, len(df)):
+            eye = df.iloc[i, 3]
+            if (eye == target_eye):
+                eye_count_tracker[j] += 1
 
 
     for j in tqdm(range(0, len(bcva_vector))):
@@ -487,7 +500,6 @@ def clinical_assoc(df):
     x = x.astype(float)
     y = y.astype(float)
 
-
     for j in tqdm(range(0, len(cst_vector))):
         eye_tracker = []
         target_cst = cst_vector[j]
@@ -499,33 +511,30 @@ def clinical_assoc(df):
             if (cst == target_cst and (eye not in eye_tracker)):
                 cst_count_eye[j] += 1
                 eye_tracker.append(eye)
+    
+    #matplotlib.rcParams.update({'font.size': 45})
 
-    matplotlib.rcParams.update({'font.size': 22})
     plt.figure(1)
-    plt.bar(cst_vector, cst_count_tracker)
+    plt.bar(cst_vector, cst_count_tracker,color='lime',edgecolor = 'black',linewidth= 0,alpha = .7)
     plt.xlabel('CST values')
-    plt.ylabel('Image Count')
-    plt.grid()
-    plt.title('CST values vs. Image Count')
+    plt.ylabel('Number of Images')
+    plt.grid(c='black')
+    plt.title('Number of Images associated with each CST Value')
     plt.figure(2)
-    plt.grid()
-    plt.bar(cst_vector, cst_count_eye)
-    plt.xlabel('CST values')
-    plt.ylabel('Eye Count')
-    plt.title('CST values vs. Eye Count')
-    plt.figure(3)
-    plt.grid()
+    plt.grid(c='black')
+    
+    plt.bar(bcva_vector, bcva_count_tracker,color='red',edgecolor = 'black',linewidth= 0,alpha = .7)
+    plt.xlabel('BCVA values')
+    plt.ylabel('Number of Images')
+    plt.title('Number of Images associated with each BCVA Value')
 
-    plt.bar(bcva_vector, bcva_count_tracker)
-    plt.xlabel('BCVA values')
-    plt.ylabel('Image Count')
-    plt.title('BCVA values vs. Image Count')
-    plt.figure(4)
-    plt.grid()
-    plt.bar(bcva_vector, bcva_count_eye)
-    plt.xlabel('BCVA values')
-    plt.ylabel('Eye Count')
-    plt.title('BCVA values vs. Eye Count')
+    plt.figure(3)
+    plt.bar(eye_vector,eye_count_tracker,color='aqua',edgecolor = 'black',linewidth= 0,alpha = .7)
+    plt.xlabel('Eye Identifier Number')
+    plt.ylabel('Number of Images')
+    plt.grid(c='black')
+    plt.title('Number of Images associated with each Eye')
+
 
     plt.show()
 
@@ -613,14 +622,69 @@ def biomarker_clinical_correlation(df_dir):
         plt.scatter(total_means[k][0],total_means[k][1],c=colors[k],label = biomarker_name_list[k] + ' Absent',alpha=.2)
         plt.scatter(total_means[k][2], total_means[k][3],c=colors[k],label = biomarker_name_list[k] + ' Present',alpha=.99)
     plt.legend()
-    plt.grid()
+    plt.grid(c='black')
     plt.xlabel('Average BCVA Value')
     plt.ylabel('Average CST Value')
     plt.title('Clinical Values vs. Biomarker Presence')
     plt.show()
 
+def excel_analysis(dir):
+    excel_files = os.listdir(dir)
+    names = ['CST','Eye ID','BCVA','SimCLR']
+    # Average Positives and Negatives Plot
+
+    pos_list = []
+    neg_list = []
+    plt.figure(1)
+    for i in range(0,len(excel_files)):
+        df = pd.read_excel(os.path.join(dir,excel_files[i]))
+        pos_list.append(df.iloc[len(df)-1,1])
+        neg_list.append(df.iloc[len(df)-1,2])
+    x_axis = np.arange(len(names))
+    plt.bar(x_axis - 0.2, pos_list, width=0.4, label='Positives')
+    plt.bar(x_axis + 0.2, neg_list, width=0.4, label='Negatives')
+
+    # Xticks
+
+    plt.xticks(x_axis, names)
+    plt.grid()
+    # Add legend
+    plt.xlabel('Strategy')
+    plt.ylabel('Total')
+    plt.title('Counts of Positives and Negatives per Strategy')
+    plt.legend()
+
+    # Display
 
 
+    plt.figure(2)
+    pos_list = []
+    neg_list = []
+    # Mean Positives and Negatives Plots
+    for i in range(0,len(excel_files)):
+        df = pd.read_excel(os.path.join(dir,excel_files[i]))
+        pos_list.append(df.iloc[len(df) - 1, 3]*-1)
+        neg_list.append(df.iloc[len(df) - 1, 4]*-1)
+    x_axis = np.arange(len(names))
+    plt.bar(x_axis - 0.2, pos_list, width=0.4, label='Positives')
+    plt.bar(x_axis + 0.2, neg_list, width=0.4, label='Negatives')
+    plt.xticks(x_axis, names)
+    plt.grid()
+    # Add legend
+    plt.xlabel('Strategy')
+    plt.ylabel('Average Mean Across Last Epoch')
+    plt.title('Average Distance Statistics between positives and negatives')
+    plt.legend()
+    plt.show()
+
+def discretize_clinical():
+    pass
+
+def res18_50_plots():
+    pass
+
+def biomarker_clin_percentages_plot():
+    pass
 if __name__ == '__main__':
-    data_dir = '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_set.csv'
-    biomarker_clinical_correlation(data_dir)
+    dir = '/home/kiran/Desktop/Dev/SupCon_OCT_Clinical/final_csvs_1/biomarker_csv_files/complete_biomarker_set.csv'
+    biomarker_clinical_correlation(dir)

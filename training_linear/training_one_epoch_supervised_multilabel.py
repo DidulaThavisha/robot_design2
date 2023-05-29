@@ -5,9 +5,10 @@ import time
 import numpy as np
 from config.config_linear import parse_option
 from utils.utils import set_loader_new, set_model, set_optimizer, adjust_learning_rate, accuracy_multilabel
-from sklearn.metrics import roc_auc_score
-from models.resnet import SupCEResNet
-
+from sklearn.metrics import roc_auc_score, f1_score, precision_score,recall_score,classification_report,precision_recall_fscore_support
+from models.resnet import SupCEResNet, SupCEResNet_Original
+import torch.nn.functional as F
+import pandas as pd
 def train_supervised_multilabel(train_loader, model,criterion, optimizer, epoch, opt):
     """one epoch training"""
     model.train()
@@ -75,6 +76,7 @@ def validate_supervised_multilabel(val_loader, model,criterion, opt):
     label_list = []
     device = opt.device
     out_list = []
+    out_list_f = []
     with torch.no_grad():
         end = time.time()
         for idx, (image, bio_tensor,eye_id,bcva,cst,patient) in (enumerate(val_loader)):
@@ -94,19 +96,23 @@ def validate_supervised_multilabel(val_loader, model,criterion, opt):
             output = model(images)
 
             loss = criterion(output, labels)
-            _, pred = output.topk(1, 1, True, True)
 
-            out_list.append(output.detach().cpu().numpy())
+            out_list.append(torch.sigmoid(output).squeeze().detach().cpu().numpy())
+            output = torch.round(torch.sigmoid(output))
+
+
+
+            out_list_f.append(output.squeeze().detach().cpu().numpy())
             # update metric
             losses.update(loss.item(), bsz)
 
 
     label_array = np.concatenate(label_list,axis = 0)
-    print(label_array.shape)
-    out_array = np.concatenate(out_list,axis=0)
-    r = roc_auc_score(label_array,out_array,multi_class='ovr',average='weighted')
-    print(r)
-    out_array = np.array(out_list)
+    label_array_report = np.array(label_list)
+    out_array_report = np.array(out_list)
+    out_array_f = np.concatenate(out_list_f, axis=0)
+    out_array_f_report = np.array(out_list_f)
+    r = roc_auc_score(label_array_report,out_array_report,average='macro')
 
     return losses.avg, r
 
@@ -122,10 +128,13 @@ def main_supervised_multilabel():
     device = opt.device
 
     acc_list = []
-
+    r_list = []
     for i in range(0, 1):
     # training routine
-        model = SupCEResNet(name='resnet18',num_classes=5)
+        if(opt.super == 5):
+            model = SupCEResNet_Original(name='resnet50',num_classes=16)
+        else:
+            model = SupCEResNet_Original(name='resnet50', num_classes=5)
         model = model.to(device)
         criterion = torch.nn.BCEWithLogitsLoss()
         criterion = criterion.to(device)
@@ -143,11 +152,11 @@ def main_supervised_multilabel():
                 epoch, time2 - time1, acc))
 
 
-        loss, test_acc = validate_supervised_multilabel(test_loader, model, criterion, opt)
-        acc_list.append(test_acc)
+        loss, r = validate_supervised_multilabel(test_loader, model, criterion, opt)
+        r_list.append(r)
 
-    with open(opt.results_dir, "a") as file:
-        # Writing data to a file
-        file.write(opt.train_csv_path + '\n')
-        file.write(opt.test_csv_path + '\n')
-        file.write('AUROC: ' + str(sum(acc_list)) + '\n')
+    df = pd.DataFrame({'AUROC': r_list})
+    excel_name = opt.backbone_training + '_' + opt.biomarker + opt.model + str(opt.percentage) + 'SupervisedmultiAUROC' + str(opt.patient_split) + '.csv'
+    df.to_csv(excel_name, index=False)
+
+

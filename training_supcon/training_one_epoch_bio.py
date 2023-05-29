@@ -2,6 +2,7 @@ from utils.utils import AverageMeter,warmup_learning_rate
 import time
 import torch
 import sys
+import torch.nn.functional as F
 
 def train_Bio(train_loader, model, criterion, optimizer, epoch, opt):
     """one epoch training"""
@@ -269,7 +270,6 @@ def train_Bio(train_loader, model, criterion, optimizer, epoch, opt):
                 labels5 = eye_id.cuda(non_blocking=True)
             else:
                 labels5 = 'Null'
-
         if(opt.num_methods == 0):
             loss = criterion(features)
         elif(opt.num_methods==1):
