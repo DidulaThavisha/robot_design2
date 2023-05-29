@@ -53,11 +53,34 @@ much as 5% in total biomarker detection AUROC.
 
 ## Visual Abstract
 
+![Overall Pipeline](./visualization/graph_abstract.jpg)
+
 ## Data
+
+The data for this work can be found at this 
+[zenodo](https://doi.org/10.5281/zenodo.7105232) location, 
+with the associated paper located [here](https://arxiv.org/abs/2209.11195).
+
+Partitions of the data into training and test splits can be found in the directories
+final_csvs_1, final_csvs_2, and final_csvs_3. The number indicates which split of patients is currently being used.
+
+In a typical experiment, contrastive pre-training takes place on the data present in the file:
+
+**./final_csvs_1/datasets_combined/prime_trex_compressed.csv**
+
+Biomarker fine-tuning typicall takes place in the file:
+
+**./final_csvs_1/biomarker_csv_files/complete_biomarker_training.csv**
+
+Testing files are located in the folder:
+
+**./final_csvs_1/test_biomarker_sets**
+
+
 
 ## Code Usage
 
-Supervised Contrastive Learning Experiments on OCT Data
+
 
 1. Go to starting directory and type:
 
