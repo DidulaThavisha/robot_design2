@@ -1,18 +1,18 @@
-from config.config_supcon import parse_option
-from utils.utils_supcon import set_loader,set_model_contrast
-from utils.utils import set_optimizer, adjust_learning_rate,save_model
+from config_supcon import parse_option
+from utils_supcon import set_loader,set_model_contrast
+from utils import set_optimizer, adjust_learning_rate,save_model
 import os
 import time
 import tensorboard_logger as tb_logger
-from training_supcon.training_one_epoch_trex import train_TREX
-from training_supcon.training_one_epoch_bio import train_Bio
+from training_one_epoch_trex import train_TREX
+from training_one_epoch_bio import train_Bio
 
-from training_supcon.training_one_epoch_oct import train_OCT
-from training_supcon.training_one_epoch_alpha import train_Alpha
+from training_one_epoch_oct import train_OCT
+from training_one_epoch_alpha import train_Alpha
 
-from training_supcon.training_one_epoch_prime import train_Prime
-from training_supcon.training_one_epoch_prime_trex_combined import train_Combined
-from training_supcon.training_one_epoch_recovery import train_Recovery
+from training_one_epoch_prime import train_Prime
+from training_one_epoch_prime_trex_combined import train_Combined
+from training_one_epoch_recovery import train_Recovery
 def main():
     opt = parse_option()
 
