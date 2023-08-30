@@ -6,10 +6,10 @@ import torch
 import torch.optim as optim
 import os
 from sklearn.metrics import roc_auc_score, f1_score
-from models.resnet import  SupConResNet,LinearClassifier,LinearClassifier_MultiLabel, SupConResNet_Original, SupConResNet_Original_Headless
+from resnet import  SupConResNet,LinearClassifier,LinearClassifier_MultiLabel, SupConResNet_Original, SupConResNet_Original_Headless
 import torch.backends.cudnn as cudnn
 from torchvision import transforms, datasets
-from loss.loss import add_kd_loss
+from loss import add_kd_loss
 from oct_dataset import OCTDataset
 from biomarker import BiomarkerDatasetAttributes
 from biomarker_multi import BiomarkerDatasetAttributes_MultiLabel
