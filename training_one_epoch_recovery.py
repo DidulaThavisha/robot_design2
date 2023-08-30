@@ -1,4 +1,4 @@
-from utils.utils import AverageMeter,warmup_learning_rate
+from utils import AverageMeter,warmup_learning_rate
 import time
 import torch
 import sys
