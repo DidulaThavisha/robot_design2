@@ -10,12 +10,12 @@ from models.resnet import  SupConResNet,LinearClassifier,LinearClassifier_MultiL
 import torch.backends.cudnn as cudnn
 from torchvision import transforms, datasets
 from loss.loss import add_kd_loss
-from datasets.oct_dataset import OCTDataset
-from datasets.biomarker import BiomarkerDatasetAttributes
-from datasets.biomarker_multi import BiomarkerDatasetAttributes_MultiLabel
-from datasets.biomarker_fusion import BiomarkerDatasetAttributes_Fusion
-from datasets.biomarker_multi_complete import BiomarkerDatasetAttributes_MultiLabel_Complete
-from datasets.biomarker_multi_fusion import BiomarkerDatasetAttributes_MultiLabel_MultiClass
+from oct_dataset import OCTDataset
+from biomarker import BiomarkerDatasetAttributes
+from biomarker_multi import BiomarkerDatasetAttributes_MultiLabel
+from biomarker_fusion import BiomarkerDatasetAttributes_Fusion
+from biomarker_multi_complete import BiomarkerDatasetAttributes_MultiLabel_Complete
+from biomarker_multi_fusion import BiomarkerDatasetAttributes_MultiLabel_MultiClass
 
 import torch.nn as nn
 def set_model(opt):
