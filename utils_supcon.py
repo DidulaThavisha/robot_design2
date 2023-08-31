@@ -106,13 +106,13 @@ def set_loader(opt):
         data_path_train = opt.train_image_path
         train_dataset = BiomarkerDatasetAttributes(csv_path_train,data_path_train,transforms = TwoCropTransform(train_transform))
     elif opt.dataset == 'Prime':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) + '/complete_prime_recovery_trex'+'/full_prime_train.csv'
+        csv_path_train = './robot_design2/final_csvs_' + str(opt.patient_split) + '/complete_prime_recovery_trex'+'/full_prime_train.csv'
         data_path_train = opt.train_image_path
         train_dataset = PrimeDatasetAttributes(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
 
     elif opt.dataset == 'Prime_TREX_DME_Fixed' or opt.dataset == 'Prime_TREX_Alpha' \
             or opt.dataset == 'Patient_Split_2_Prime_TREX' or opt.dataset == 'Patient_Split_3_Prime_TREX':
-        csv_path_train = './final_csvs_' + str(opt.patient_split) +'/datasets_combined/prime_trex_compressed.csv'
+        csv_path_train = './robot_design2/final_csvs_' + str(opt.patient_split) +'/datasets_combined/prime_trex_compressed.csv'
         data_path_train = opt.train_image_path
         train_dataset = CombinedDataset(csv_path_train, data_path_train, transforms=TwoCropTransform(train_transform))
     else:
